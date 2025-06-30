@@ -1,0 +1,38 @@
+/* allemaal center gedoe */
+
+.phpindexgedoe {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.adminzooi {
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+    color: #333;
+}
+
+#adminzooi
+{
+    
+    font-size: 25px;
+    text-decoration: none;
+}
+
+
+
+
+.cssTitletje {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+
