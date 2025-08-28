@@ -17,7 +17,7 @@ if ($gebruiker != null) {
     $key = md5(uniqid(rand(), true));
 
 
-    $sessie->userId = $gebruiker->id;
+    $sessie->userid = $gebruiker->id;
     $sessie->key = $key;
     $sessie->start = date("Y-m-d H:i:s");
     $sessie->end = date("Y-m-d H:i:s", strtotime("+1 month"));
@@ -30,7 +30,7 @@ if ($gebruiker != null) {
     exit;
 }
 
-header("Location: admin.php");
+header("Location: ../admin.php");
 exit();
 
 ?>

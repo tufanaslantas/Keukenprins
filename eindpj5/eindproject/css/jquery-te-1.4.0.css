@@ -1,0 +1,181 @@
+/*!
+ * Modernized jQuery TE 1.4.0 Editor CSS
+ */
+
+.jqte {
+    margin: 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+    background: #fff;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+.jqte_focused {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+/* Toolbar */
+.jqte_toolbar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.jqte_tool {
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: background 0.2s, border 0.2s;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.jqte_tool_icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/jquery-te.png) no-repeat;
+    background-size: 500px auto;
+    filter: grayscale(100%);
+    transition: filter 0.2s;
+}
+
+.jqte_tool:hover {
+    background-color: #e9ecef;
+}
+
+.jqte_tool:hover .jqte_tool_icon {
+    filter: none;
+}
+
+.jqte_tool_depressed {
+    background-color: #dee2e6;
+    border-color: #ced4da;
+}
+
+/* Editor area */
+.jqte_editor, .jqte_source {
+    background: #ffffff;
+    padding: 16px;
+    min-height: 250px;
+    max-height: 800px;
+    overflow-y: auto;
+    resize: vertical;
+    border-top: 1px solid #dee2e6;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #212529;
+}
+
+.jqte_editor p, .jqte_editor div {
+    margin-bottom: 1em;
+}
+
+.jqte_editor img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 1em 0;
+}
+
+.jqte_editor a {
+    color: #0d6efd !important;
+    text-decoration: underline;
+}
+
+/* Source mode */
+.jqte_source textarea {
+    width: 100%;
+    min-height: 250px;
+    border: none;
+    background: #fef9f3;
+    padding: 16px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    resize: vertical;
+}
+
+/* Link modal */
+.jqte_linkform {
+    background: #f1f3f5;
+    border-bottom: 1px solid #ced4da;
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.jqte_linkinput {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+
+.jqte_linkinput:focus {
+    outline: none;
+    border-color: #0d6efd;
+    background: #ffffff;
+}
+
+.jqte_linkbutton {
+    background: #0d6efd;
+    color: white;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.jqte_linkbutton:hover {
+    background: #0b5ed7;
+}
+
+/* Format dropdown */
+.jqte_formats {
+    background: white;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.jqte_format {
+    padding: 6px 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.jqte_format:hover {
+    background: #e9ecef;
+}
+
+/* Font sizes */
+.jqte_fontsizes, .jqte_cpalette {
+    background: white;
+    border: 1px solid #dee2e6;
+    padding: 6px;
+    z-index: 100;
+}
+
+/* Colors */
+.jqte_color {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.jqte_color:hover {
+    border-color: #000;
+}

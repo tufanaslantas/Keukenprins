@@ -1,5 +1,7 @@
 <?php
 
+//Test om te zien of dit goede bestand is of niet nummer: 2
+
 include "../classes/sessie.php";
 include "../classes/gebruiker.php";
 include "../classes/database.php";
@@ -12,15 +14,10 @@ if ($sessie == null) {
 }
 $user_id = $sessie->userId;
 
-$blogging = null;
-$blogging = BloggingOng::BloggingAdminFr();
-$show = false;
+$blogging = Blogging::BlogAdmin();
 
-if (!$blogging) {
-    $show = false;
-} else {
-    $show = true;
-}
+$show = is_array($blogging) && count($blogging) > 0;
+
 ?>
 
 <!doctype html>
@@ -42,28 +39,31 @@ if (!$blogging) {
             <div class="col text-center">
                 <nav class="navbar bg-danger">
                     <div class="container-fluid">
-
-
-                        <a href="../index.php"><button type="button" class="btn btn-warning" id="adminzooi">Home</button></a> <a></a><a href="insert.php"><button type="button" class="btn btn-warning" id="adminzooi">Blog Aanmaken</button></a> <a></a><a href="
-                        admin.php"><button type="button" class="btn btn-warning" id="adminzooi">Admin</button></a>
-                        </a>
+                        <a href="../index.php"><button type="button" class="btn btn-warning" id="adminzooi">Home</button></a>
+                        <a href="insert.php"><button type="button" class="btn btn-warning" id="adminzooi">Blog Aanmaken</button></a>
+                        <a href="admin.php"><button type="button" class="btn btn-warning" id="adminzooi">Admin</button></a>
                     </div>
                 </nav>
                 <br>
                 <div class="row">
                     <div class="col text-center">
-                        <?php if ($show === true && is_array($blogging)) : ?>
+                        <?php if ($show) : ?>
                             <div class="d-flex flex-wrap justify-content-center gap-3">
                                 <?php foreach ($blogging as $blog) : ?>           
-                                        <div class="card border-danger mb-3" style="width: 18rem;">
-                                            <img src="../images/upload/<?= $blog->image;  ?>"  class="card-img-top" alt="...">
-                                                <p class="card-text"><?= $blog->title; ?></p>
-                                                <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><a href="ffEenVerbeteringOfzoAanbrengen.php?id=<?= $blog->id; ?>" >Bewerken</a> <a href="ffEenVerbeteringOfzoAanbrengen.php?id=<?= $blog->id; ?>"  > <i class="bi bi-pencil"></i></a></li>
-                                                <li class="list-group-item"> <a href="delete.php?id=<?= $blog->id; ?>">Verwijderen</a>  <a href="delete.php?id=<?= $blog->id; ?>" >  <i class="bi bi-trash"></i></a></li>         
-                                            </ul>
-                                        </div>
-                                    </a>
+                                    <div class="card border-danger mb-3" style="width: 18rem;">
+                                        <img src="../images/upload/<?= $blog->image; ?>" class="card-img-top" alt="...">
+                                        <p class="card-text"><?= $blog->title; ?></p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <a href="ffEenVerbeteringOfzoAanbrengen.php?id=<?= $blog->id; ?>">Bewerken</a>
+                                                <a href="ffEenVerbeteringOfzoAanbrengen.php?id=<?= $blog->id; ?>"><i class="bi bi-pencil"></i></a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="delete.php?id=<?= $blog->id; ?>">Verwijderen</a>
+                                                <a href="delete.php?id=<?= $blog->id; ?>"><i class="bi bi-trash"></i></a>
+                                            </li>         
+                                        </ul>
+                                    </div>
                                 <?php endforeach; ?>
                             </div>
                         <?php else : ?>
@@ -78,3 +78,4 @@ if (!$blogging) {
 </body>
 
 </html>
+
